@@ -1,6 +1,11 @@
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+          (require 'package) ;; You might already have this line
+          (add-to-list 'package-archives
+          '("popkit" . "https://elpa.popkit.org/packages/"))
+          (when (< emacs-major-version 24)
+          ;; For important compatibility libraries like cl-lib
+          (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+          (package-initialize) ;; You might already have this line
+
 
 ;;; from purcell/emacs.d
 (defun require-package (package &optional min-version no-refresh)
